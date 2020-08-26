@@ -61,28 +61,23 @@ public class Etracker_Controller {
 	 }
 	
 	@PostMapping(PathRoutes.SearchSQL.ADD_INCOME_CATEGORY)
-	 public void addincomecategory(@RequestParam String categoryName ) {
-	 exp.addincomecategory(categoryName);
+	 public void addincomecategory(@RequestParam String categoryName, @RequestParam int userId ) {
+	 exp.addincomecategory(categoryName,userId);
 	 }
 	@PostMapping(PathRoutes.SearchSQL.ADD_EXPENSE_CATEGORY)
-	 public void addexpensecategory(@RequestParam String categoryName ) {
-	 exp.addexpensecategory(categoryName);
+	 public void addexpensecategory(@RequestParam String categoryName, @RequestParam int userId ) {
+	 exp.addexpensecategory(categoryName, userId);
 	 }
 	
-	
-	
-	
-	
-	
 	@GetMapping(PathRoutes.SearchSQL.LIST_CATEGORY_EXPENSE)
-	public List<Map<String, Object>> liscategoryexpense()
+	public List<Map<String, Object>> liscategoryexpense(@RequestParam int userId)
 	{
-		return exp.liscategoryexpense();
+		return exp.liscategoryexpense(userId);
 	}
 	@GetMapping(PathRoutes.SearchSQL.LIST_CATEGORY_INCOME)
-	public List<Map<String, Object>> liscategoryincome()
+	public List<Map<String, Object>> liscategoryincome(@RequestParam int userId)
 	{
-		return exp.liscategoryincome();
+		return exp.liscategoryincome(userId);
 	}
 	@GetMapping(PathRoutes.SearchSQL.CATEGORY_BAR_MONTH)
 	public List<Map<String, Object>> monthlycategorysum(@RequestParam int userId)

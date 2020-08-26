@@ -63,15 +63,15 @@ public class Etracker_DaoImpl implements Etracker_Dao {
 		
 	}
 	
-	public void addincomecategory( String categoryName) {
+	public void addincomecategory( String categoryName,int userId) {
 
-		 jdbcTemplate.update(Sql.MetadataSql.ADDINCOMECATEGORY, categoryName);
+		 jdbcTemplate.update(Sql.MetadataSql.ADDINCOMECATEGORY, categoryName,userId);
 		
 	}
 	
-	public void addexpensecategory( String categoryName) {
+	public void addexpensecategory( String categoryName,int userId) {
 
-		 jdbcTemplate.update(Sql.MetadataSql.ADDEXPENSECATEGORY, categoryName);
+		 jdbcTemplate.update(Sql.MetadataSql.ADDEXPENSECATEGORY, categoryName,userId);
 		
 	}
 	
@@ -179,16 +179,16 @@ public class Etracker_DaoImpl implements Etracker_Dao {
 	}
 
 	@Override
-	public List<Map<String, Object>> liscategoryexpense() {
+	public List<Map<String, Object>> liscategoryexpense(int userId) {
 		String sql = Sql.MetadataSql.LIST_CATEGORY_EXPENSE;
-		return jdbcTemplate.queryForList(sql);
+		return jdbcTemplate.queryForList(sql,userId);
 
 	}
 
 	@Override
-	public List<Map<String, Object>> liscategoryincome() {
+	public List<Map<String, Object>> liscategoryincome(int userId) {
 		String sql = Sql.MetadataSql.LIST_CATEGORY_INCOME;
-		return jdbcTemplate.queryForList(sql);
+		return jdbcTemplate.queryForList(sql,userId);
 
 	}
 }

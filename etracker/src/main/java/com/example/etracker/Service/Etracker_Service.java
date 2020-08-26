@@ -14,8 +14,8 @@ public interface Etracker_Service {
 	public Collection<Map<String,java.lang.Object>> graph4(int userId);
 	public void addincome(int userId, String item, int categoryId, double amount, String transactionDate);
 	public void addexpense(int userId, String item, int categoryId, double amount, String transactionDate);
-	public void addincomecategory(  String categoryName);
-	public void addexpensecategory( String categoryName);
+	public void addincomecategory(  String categoryName,int userId);
+	public void addexpensecategory( String categoryName,int userId);
 
 	public List<Map<String, Object>> monthlycategorysum(int userId);
 	public List<Map<String, Object>> yearlycategorysum(int userId);
@@ -31,7 +31,7 @@ public interface Etracker_Service {
 
 	public int addUser(long l, String name, String emailId, String password );
 	
-	public List<Map<String, Object>> liscategoryexpense();
-	public List<Map<String, Object>> liscategoryincome();
+	public List<Map<String, Object>> liscategoryexpense(int userId);
+	public List<Map<String, Object>> liscategoryincome(int userId);
 	
 }

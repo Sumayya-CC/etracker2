@@ -42,12 +42,12 @@ public class Etracker_ServiceImpl implements Etracker_Service{
 	
 	}
 	
-	public void addincomecategory( String categoryName) {
-		    epTrackDao.addincomecategory(categoryName);
+	public void addincomecategory( String categoryName,int userId) {
+		    epTrackDao.addincomecategory(categoryName,userId);
 	 
     }
-    public void addexpensecategory(String categoryName) {
-	        epTrackDao.addexpensecategory(categoryName);
+    public void addexpensecategory(String categoryName,int userId) {
+	        epTrackDao.addexpensecategory(categoryName,userId);
 
     }
 
@@ -85,13 +85,13 @@ public class Etracker_ServiceImpl implements Etracker_Service{
 		return epTrackDao.resetPassword(emailId,password);
 	}
 	@Override
-	public List<Map<String, Object>> liscategoryexpense() {
-		return epTrackDao.liscategoryexpense();
+	public List<Map<String, Object>> liscategoryexpense(int userId) {
+		return epTrackDao.liscategoryexpense(userId);
 
 	}
 	@Override
-	public List<Map<String, Object>> liscategoryincome() {
-		return epTrackDao.liscategoryincome();
+	public List<Map<String, Object>> liscategoryincome(int userId) {
+		return epTrackDao.liscategoryincome(userId);
 
 	}
 	
